@@ -101,5 +101,5 @@ def sha1(b):
 
 if __name__ == '__main__':
     M = 'abc'.encode('ascii')
-    sha1_has = sha1(M)
-    print(sha1_has.hex())
+    sha1_hash = sha1(M)
+    print(sha1_hash.hex())
