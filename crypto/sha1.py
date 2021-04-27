@@ -35,7 +35,7 @@ def pad(b):
 
     # Pad with 1 and 0s
     b.append(0b10000000)
-    while not (len(b) * 8) == 448 % 512:
+    while (len(b) * 8) % 512 != 448:
         b.append(0b00000000)
 
     # Last 64 bits are message length
