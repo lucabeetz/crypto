@@ -136,16 +136,3 @@ def sha256(b):
         H = [i % 2**32 for i in H]
 
     return b''.join(i2b(i) for i in H)
-
-
-if __name__ == '__main__':
-    test_bytes = [
-        b'',
-        b'abc',
-        b'cat',
-        b'longer sentence for validation of sha256 on large number of blocks'
-    ]
-
-    for b in test_bytes:
-        y = sha256(b).hex()
-        print(y)
