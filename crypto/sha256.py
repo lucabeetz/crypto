@@ -77,7 +77,7 @@ def pad(b):
 
     # Pad with 1 and 0s
     b.append(0b10000000)
-    while not (len(b) * 8) == 448 % 512:
+    while (len(b) * 8) % 512 != 448:
         b.append(0b00000000)
 
     # Last 64 bits are message length
@@ -139,6 +139,13 @@ def sha256(b):
 
 
 if __name__ == '__main__':
-    M = 'abc'.encode('ascii')
-    sha256_hash = sha256(M)
-    print(sha256_hash.hex())
+    test_bytes = [
+        b'',
+        b'abc',
+        b'cat',
+        b'longer sentence for validation of sha256 on large number of blocks'
+    ]
+
+    for b in test_bytes:
+        y = sha256(b).hex()
+        print(y)
