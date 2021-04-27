@@ -1,8 +1,7 @@
 import os
-from .sha256 import sha256
 
 
-def get_random_os(n=64):
+def get_random_os(n=32):
     return os.urandom(n)
 
 
@@ -11,7 +10,7 @@ def gen_private_key():
     _r = 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEBAAEDCE6AF48A03BBFD25E8CD0364141
 
     while True:
-        key = sha256(int.from_bytes(get_random_os(), 'big'))
+        key = int.from_bytes(get_random_os(), 'big')
         if key < _r:
             break
 
