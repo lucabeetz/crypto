@@ -117,6 +117,5 @@ def gen_curve():
 
 def gen_public_key(private_key):
     _, G = gen_curve()
-    public_key = (G * private_key)
-    print(hex(public_key.x))
+    public_key = G * private_key
     return public_key
